@@ -16,7 +16,7 @@ export default function Home() {
       })
     };
 
-    setStudents([newStudent])
+    setStudents(prevState => [...prevState, newStudent])
   }
 
   return (
@@ -31,7 +31,11 @@ export default function Home() {
       onClick={handleAddStudent}
       >Adicionar</button>
       {
-        students.map(student => <Card name={student.name} time={students.time} /> ) 
+        students.map(student => 
+        <Card
+           key={student.time}
+           name={student.name} 
+           time={students.time} /> ) 
       }
       
       
